@@ -1,15 +1,15 @@
-function generateRandomNumber(){
-
+function generateRandomNumber(min, max){
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
-function generateRandomString(){
+function generateRandomString(length, letters, numbers, symbols){
     
 }
 
-function generateRandomColor(){
+function generateRandomColor(rMin, rMax, gMin, gMax, bMin, bMax){
     
 }
 
-function generateRandomDate(){
+function generateRandomDate(minDate, maxDate){
     
 }
