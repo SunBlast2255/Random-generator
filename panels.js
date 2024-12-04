@@ -20,7 +20,12 @@ document.getElementById("reset-num").addEventListener("click", function(){
 
 // String panel
 document.getElementById("gen-str").addEventListener("click", function(){
+    const length = parseInt(document.getElementById("length-str").value);
+    const letters = document.getElementById("letter-check").checked;
+    const numbers = document.getElementById("numbers-check").checked;
+    const symbols = document.getElementById("symbols-check").checked;
 
+    document.getElementById("str-res").innerHTML = generateRandomString(length, letters, numbers, symbols)
 });
 
 document.getElementById("reset-str").addEventListener("click", function(){
