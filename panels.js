@@ -13,8 +13,8 @@ document.getElementById("gen-num").addEventListener("click", function(){
 });
 
 document.getElementById("reset-num").addEventListener("click", function(){
-    document.getElementById("min-num").value = "";
-    document.getElementById("max-num").value = "";
+    document.getElementById("min-num").value = 0;
+    document.getElementById("max-num").value = 10;
     document.getElementById("num-res").innerHTML = "0";
 });
 
@@ -37,9 +37,9 @@ document.getElementById("gen-str").addEventListener("click", function(){
 });
 
 document.getElementById("reset-str").addEventListener("click", function(){
-    document.getElementById("length-str").value = "";
-    document.getElementById("letter-check").checked = false;
-    document.getElementById("numbers-check").checked = false;
+    document.getElementById("length-str").value = 8;
+    document.getElementById("letter-check").checked = true;
+    document.getElementById("numbers-check").checked = true;
     document.getElementById("symbols-check").checked = false;
 
     document.getElementById("str-res").innerHTML = "ABC";
@@ -47,11 +47,33 @@ document.getElementById("reset-str").addEventListener("click", function(){
 
 // Color panel
 document.getElementById("gen-color").addEventListener("click", function(){
+    const minR = document.getElementById("min-r").value;
+    const maxR = document.getElementById("max-r").value;
+    const minG = document.getElementById("min-g").value;
+    const maxG = document.getElementById("max-g").value;
+    const minB = document.getElementById("min-b").value;
+    const maxB = document.getElementById("max-b").value;
 
+    if (!minR || !maxR || !minG || !maxG || !minB || !maxB) {
+        return;
+    }
+
+    if(minR < 0 || maxR > 255 || minG < 0 || maxG > 255 || minB < 0 || maxB > 255){
+        return;
+    }
+
+    document.getElementById("color-res").innerHTML = generateRandomColor(minR, maxR, minG, maxG, minB, maxB);
 });
 
 document.getElementById("reset-color").addEventListener("click", function(){
+    document.getElementById("min-r").value = 0;
+    document.getElementById("max-r").value = 255;
+    document.getElementById("min-g").value = 0;
+    document.getElementById("max-g").value = 255;
+    document.getElementById("min-b").value = 0;
+    document.getElementById("max-b").value = 255;
 
+    document.getElementById("color-res").innerHTML = "#000000";
 });
 
 // Date panel
