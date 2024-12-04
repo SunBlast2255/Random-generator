@@ -25,11 +25,24 @@ document.getElementById("gen-str").addEventListener("click", function(){
     const numbers = document.getElementById("numbers-check").checked;
     const symbols = document.getElementById("symbols-check").checked;
 
+    if(!length || length < 1){
+        return;
+    }
+
+    if(!letters && !numbers && !symbols){
+        return;
+    }
+
     document.getElementById("str-res").innerHTML = generateRandomString(length, letters, numbers, symbols)
 });
 
 document.getElementById("reset-str").addEventListener("click", function(){
+    document.getElementById("length-str").value = "";
+    document.getElementById("letter-check").checked = false;
+    document.getElementById("numbers-check").checked = false;
+    document.getElementById("symbols-check").checked = false;
 
+    document.getElementById("str-res").innerHTML = "ABC";
 });
 
 // Color panel
