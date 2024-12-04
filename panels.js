@@ -1,15 +1,15 @@
 // Number panel
 document.getElementById("gen-num").addEventListener("click", function(){
-    const min = parseInt(document.getElementById("min-num").value);
-    const max = parseInt(document.getElementById("max-num").value);
+    const min = document.getElementById("min-num").value;
+    const max = document.getElementById("max-num").value;
 
-    if(!min || !max){
+    if(min == "" || max == ""){
         return;
     }else if(max < min){
         return;
     }
 
-    document.getElementById("num-res").innerHTML = generateRandomNumber(min, max);
+    document.getElementById("num-res").innerHTML = generateRandomNumber(parseInt(min), parseInt(max));
 });
 
 document.getElementById("reset-num").addEventListener("click", function(){
