@@ -78,9 +78,19 @@ document.getElementById("reset-color").addEventListener("click", function(){
 
 // Date panel
 document.getElementById("gen-date").addEventListener("click", function(){
+    const dateMin = document.getElementById("min-date").value;
+    const dateMax = document.getElementById("max-date").value;
 
+    if(!dateMin || !dateMax){
+        return
+    }
+
+    document.getElementById("date-res").innerHTML = generateRandomDate(dateMin, dateMax);
 });
 
 document.getElementById("reset-date").addEventListener("click", function(){
+    document.getElementById("min-date").value = "1970-01-01";
+    document.getElementById("max-date").value = "1970-01-01";
 
+    document.getElementById("date-res").innerHTML = "01/01/1970";
 });

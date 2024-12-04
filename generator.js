@@ -22,7 +22,7 @@ function generateRandomString(length, letters, numbers, symbols){
     charSet = charSet.split("").sort(() => Math.random() - 0.5).join('');;
 
     for(let i = 0; i < length; i++){
-        result += charSet[Math.floor(Math.random() * charSet.length)];
+        result += charSet[generateRandomNumber(0, charSet.length)];
     }
 
     return result;
@@ -37,5 +37,14 @@ function generateRandomColor(rMin, rMax, gMin, gMax, bMin, bMax){
 }
 
 function generateRandomDate(minDate, maxDate){
-    
+    const min = Date.parse(minDate);
+    const max = Date.parse(maxDate);
+
+    if(min > max){
+        return document.getElementById("date-res").innerHTML;
+    }
+
+    const result = new Date(generateRandomNumber(min, max));
+
+    return `${(result.getMonth() + 1).toString().padStart(2, '0')}/${result.getDate().toString().padStart(2, '0')}/${result.getFullYear()}`;
 }
